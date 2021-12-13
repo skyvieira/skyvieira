@@ -1,4 +1,5 @@
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
+import Context from "../../../../store/context";
 import * as S from "./styles";
 
 export default function Laptop() {
@@ -12,13 +13,15 @@ export default function Laptop() {
     setRgb(`rgba(${x},${y},${z},.8)`);
   };
 
+  const { state } = useContext(Context);
+
   return (
     <S.Box>
       <S.Mouse onClick={() => handleRGB()} rgb={rgb}>
         <S.MouseWheel />
       </S.Mouse>
       
-      <S.Laptop>
+      <S.Laptop isDark={state.isDark}>
         <S.Screen />
       </S.Laptop>
     </S.Box>

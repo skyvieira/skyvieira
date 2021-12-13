@@ -91,7 +91,7 @@ export const Switch = styled.button`
   display: flex;
   justify-content: center;
   width: 3px;
-  height: 5rem;
+  height: 5.5rem;
   border: none;
   background: #333;
   animation: ${swinging} 2.5s infinite;

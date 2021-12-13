@@ -1,16 +1,18 @@
 import styled from "styled-components";
 
 export const Desk = styled.div`
-  width: 90%;
+  margin: 0 auto;
+  width: 80%;
 `;
 
 export const Top = styled.div`
-  height: 3rem;
+  height: 2.5rem;
   border-radius: 5px;
-  border-top: 2rem solid #e58642;
-  border-right: 5px solid #5e2f0d;
-  border-left: 3px solid #9c4e15;
-  background: #7a3c11;
+  border-top: 1.8rem solid ${props => props.isDark ? '#907438' : '#815247'};
+  border-right: 5px solid ${props => props.isDark ? '#2d2412' : '#6b362a'};
+  border-left: 3px solid ${props => props.isDark ? '#2d2412' : '#6b362a'};
+  background:	${props => props.isDark ? '#907438' : '#7e3f31'};
+  transition: .5s;
 `;
 
 export const Surface = styled.div`

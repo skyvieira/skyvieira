@@ -8,26 +8,79 @@ export const Navigation = styled.nav`
   flex-direction: column;
   align-items: center;
   justify-content: space-between;
-  padding: 1.5rem 2rem;
+  padding: 1rem 2.5rem;
   width: 100%;
-  height: 100vh;
+  z-index: 1;
 
-  & > :nth-child(odd) {
+  & > :first-child,
+  ul {
     display: flex;
     justify-content: space-between;
     width: 100%;
   }
 `;
 
-export const Tools = styled.div``;
+export const Row = styled.div``;
 
 export const Logo = styled.img`
-  width: 3rem;
+  width: 2.5rem;
   filter: invert${props => props.iconColor ? '(1)' : '(0)'};
   transition: .5s;
 `;
 
-export const LinkBox = styled.ul`
+export const Tools = styled.div`
+  display: flex;
+  align-items: center;
+  font-family: Courier;
+`;
+
+export const Gear = styled.button`
+  position: relative;
+  margin-left: 1rem;
+  width: 1.2em;
+  height: 1.2em;
+  background: none;
+  border-radius: 50%;
+  border: calc(1.2em / 3.5) solid ${props => props.color};
+  transform: ${props => props.tools && 'rotate(45deg)'};
+  transition: .2s;
+  cursor: pointer;
+
+  &:before,
+  &:after {
+    content: '×';
+    position: absolute;
+    transform: translate(-50%, -50%);
+    font-family: serif;
+    font-weight: bold;
+    font-size: 3em;
+    color: ${props => props.color};
+  }
+
+  &:after {
+    transform: translate(-50%,-50%) rotate(45deg);
+  }
+`;
+
+export const Switch = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  min-width: 6rem;
+  color: ${props => props.color};
+  font-size: .85em;
+  transition: .5s;
+  
+  &:not(:first-child) {
+    margin-left: 1rem;
+  }
+`;
+
+export const LinkRow = styled.ul`
+  position: relative;
+  top: 85vh;
+  font-size: 1.05em;
+  font-family: Consolas;
   list-style: none;
 `;
 
@@ -35,43 +88,22 @@ export const Link = styled(GatsbyLink)`
   color: ${props => props.color};
   text-decoration: none;
   transition: .5s;
-`;
 
-export const SetNoise = styled.div`
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  min-width: 7.6rem;
-  color: ${props => props.color};
-  font-size: 1.1em;
-  transition: .5s;
-`;
-
-export const NoiseBtn = styled.button`
-  position: relative;
-  margin: ${props => props.isNoise ? '8px 0' : '0 8px'} 0 0;
-  padding: .4rem 0;
-  width: 4rem;
-  color: ${props => props.color};
-  font-size: .7em;
-  font-weight: ${props => !props.isDark && '700'};
-  letter-spacing: 2px;
-  border-radius: 20px;
-  box-shadow: ${props => !props.isNoise && '3px 3px 0 #222'};
-  background: #00000010;
-  transition: .5s cubic-bezier(0, 0, 0.2, 1);
-  cursor: pointer;
-
-  &:before {
+  &:after {
     content: '';
-    position: absolute;
-    top: 0;
-    left: ${props => props.isNoise ? '50%' : '0'};
-    width: 50%;
-    height: 100%;
-    border-radius: 50%;
-    background: ${props => props.isDark ? '#ccc' : '#000'};
-    mix-blend-mode: overlay;
-    transition: .3s cubic-bezier(0, 0, 0.2, 1);
+    position: relative;
+    bottom: -1px;
+    display: block;
+    margin: 0 auto;
+    width: 3px;
+    height: 2px;
+    background: ${props => props.color};
+    transition: .3s;
+    opacity: .5;
+  }
+  
+  &:hover :after {
+    width: 10px;
+    bottom: -3px;
   }
 `;
