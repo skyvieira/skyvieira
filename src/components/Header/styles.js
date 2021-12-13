@@ -1,9 +1,6 @@
 import styled from "styled-components";
 
-export const Container = styled.header`
-  display: flex;
-  justify-content: center;
-`;
+export const Container = styled.header``;
 
 export const Background = styled.div`
   position: fixed;
@@ -20,7 +17,6 @@ export const Wrapper = styled.section`
   width: 92%;
   height: 100vh;
   color: ${props => props.color};
-  transition: .5s;
 `;
 
 export const Content = styled.div`
@@ -34,19 +30,18 @@ export const Content = styled.div`
 export const Title = styled.h1`
   display: flex;
   flex-direction: column;
-  font-size: 10em;
-  font-weight: 700;
-  line-height: 1;
-  letter-spacing: 2px;
-  text-transform: lowercase;
-  text-shadow: ${props => props.isDark && '-10px -2px 0 #221a'};
+  font: 400 1.3em/1 'Times New Roman', georgia, serif;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  text-shadow: 0 0 1px #000;
   transition: .4s;
 
   span {
-    font-size: .12em;
-    letter-spacing: 8px;
-    text-transform: uppercase;
-    text-shadow: none;
+    font-weight: 700;
+    font-size: 10em;
+    letter-spacing: 0;
+    text-transform: lowercase;
+    text-shadow: -6px -1px 0 ${props => props.isDark ? '#221' : '#666'};
   }
 `;
 
@@ -56,7 +51,8 @@ export const About = styled.div`
 
 export const Subtitle = styled.h2`
   font-size: 1.4em;
-  font-weight: ${props => props.isDark ? '400' : '700'};
+  font-weight: 700;
+  text-shadow: 0 0 1px black;
   opacity: .8;
   transition: .5s;
 `;
@@ -64,9 +60,9 @@ export const Subtitle = styled.h2`
 export const Tags = styled.ul`
   display: flex;
   margin: 1.5rem 0 2rem;
-  color: ${props => props.isDark ? 'pink' : 'grey'};
-  font-size: 1.1em;
-  font-weight: 700;
+  color: ${props => props.isDark ? 'pink' : '#777'};
+  font: 700 1.2em Consolas, georgia, serif;
+  letter-spacing: 3px;
   text-transform: uppercase;
   transition: .5s;
 `;
@@ -74,17 +70,14 @@ export const Tags = styled.ul`
 export const Tag = styled.li`
   display: flex;
   align-items: center;
-  font-weight: 700;
   list-style: none;
-  transition: .5s;
 
   &:not(:first-child) :before {
     content: '•';
     margin: 0 1rem;
     padding-bottom: 2px;
-    color: #ccc;
-    font-size: 1.3em;
-    transition: .5s;
+    color: #999;
+    font-size: 1.2em;
   }
 `;
 

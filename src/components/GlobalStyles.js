@@ -14,12 +14,31 @@ const GlobalStyle = createGlobalStyle`
     background: #aaa;
   }
 
+  ::-webkit-scrollbar {
+    position: absolute;
+    width: 15px;
+    border-radius: 10px;
+    background: #00000020;
+  }
+  
+  ::-webkit-scrollbar-thumb {
+    border-radius: 10px;
+    border: 2px solid #555;
+    background: #222;
+  }
+
+  ::-webkit-scrollbar-thumb:hover {
+    background: #333;
+  }
+
   body {
     font: 400 16px RoxboroughCF, georgia, serif;
     text-rendering: optimizelegibility;
     -webkit-font-smoothing: antialiased;
     word-wrap: break-word;
     font-kerning: normal;
+    background: ${props => props.isDark && '#111'};
+    overflow-y: overlay;
 
     &:before {
       content: "";

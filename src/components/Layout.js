@@ -29,7 +29,10 @@ export default function Layout({ children, home }) {
         <title>{SetTitle()}</title>
       </Helmet>
       
-      <GlobalStyles isNoise={state.isNoise} />
+      <GlobalStyles
+        isDark={state.isDark}
+        isNoise={state.isNoise}
+      />
 
       <>
         <Nav home={home} />

@@ -15,20 +15,8 @@ export default function Header() {
           subtitle
           tags
           about
-          lightBgDeg
-          lightBgColor1 {
-            hex
-          }
-          lightBgColor2 {
-            hex
-          }
-          darkBgDeg
-          darkBgColor1 {
-            hex
-          }
-          darkBgColor2 {
-            hex
-          }
+          lightBg
+          darkBg
         }
       }
     }
@@ -40,26 +28,18 @@ export default function Header() {
   const theme = useTheme();
 
   const setBackground = () => {
-    if(state.isDark) {
-      return `
-        ${query.darkBgDeg}deg, 
-        ${query.darkBgColor1.hex}, 
-        ${query.darkBgColor2.hex}
-      `
-    } else {
-      return `
-        ${query.lightBgDeg}deg, 
-        ${query.lightBgColor1.hex}, 
-        ${query.lightBgColor2.hex}
-      `
-    }
+    return state.isDark 
+    ? query.darkBg 
+    : query.lightBg
+  };
+
+  const setFontColor = () => {
+    return state.isDark 
+    ? theme.home.dark.font 
+    : theme.home.light.font
   };
 
   const tags =  query.tags.split(' ');
-
-  const setFontColor = () => {
-    return state.isDark ? theme.home.dark.font : theme.home.light.font
-  };
 
   return (
     <S.Container>
@@ -68,8 +48,9 @@ export default function Header() {
       <S.Wrapper color={setFontColor()}>
         <S.Content>
           <S.Title isDark={state.isDark}>
-            <span>{query.welcomeMsg}</span> Livia.
+            {query.welcomeMsg} <span>Livia.</span>
           </S.Title>
+          
           <S.About>
             <S.Subtitle isDark={state.isDark}>{query.subtitle}</S.Subtitle>
             <S.Tags isDark={state.isDark}>
@@ -86,7 +67,7 @@ export default function Header() {
           </S.About>
         </S.Content>
 
-        <Workspace />
+        {/* <Workspace /> */}
       </S.Wrapper>
     </S.Container>
   );

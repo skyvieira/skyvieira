@@ -17,10 +17,8 @@ export const Mouse = styled.div`
   clip-path: circle(45% at 40% 100%);
   border-radius: 0 0 10px 15px;
   box-shadow: 2px 5px 5px ${props => props.rgb};
-  border-top: 1.8rem solid #eee;
-  border-right: 1px solid #aaa;
-  border-bottom: 1.5px solid #ccc;
-  border-left: .6rem solid #ccc;
+  border-bottom: 1.5px solid #bbb;
+  border-left: .6rem solid #bbb;
   background: #ddd;
   transition: .3s;
   cursor: pointer;
@@ -28,18 +26,29 @@ export const Mouse = styled.div`
   &:after {
     content: '';
     position: absolute;
-    top: 2px;
-    right: 30%;
+    top: 2rem;
+    right: 35%;
     width: 5px;
     height: 3px;
     border-radius: 50%;
     background: #fff;
     box-shadow: 0 0 2px #fff;
     transform: rotate(20deg);
+    transition: .3s;
   }
 
   &:hover {
-    transform: translate(4px, 1px);
+    border-radius: 0 0 10px 10px;
+    border-left-width: .4rem;
+    transform: translate(2px, 2px) scaleX(.9);
+
+    :after {
+      top: 1.9rem;
+    }
+
+    div {
+      left: 40%;
+    }
   }
 `;
 
@@ -56,6 +65,7 @@ export const MouseWheel = styled.div`
   box-shadow: inset .5px 0 1px #555;
   background: #aaa;
   transform: rotate(-8deg);
+  transition: .3s;
 
   &:after {
     content: '';

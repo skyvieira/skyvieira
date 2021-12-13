@@ -1,10 +1,11 @@
-import React, { useContext } from "react";
+import React, { useContext, useState } from "react";
 import { graphql, useStaticQuery } from "gatsby";
 import Context from "../../store/context";
 import { useTheme } from "@emotion/react";
 import * as S from "./styles";
 
 import Lamp from "../Workspace/Lamp";
+import Button from "../Button";
 
 export default function Nav({ home }) {
   const data = useStaticQuery(graphql`
@@ -23,16 +24,19 @@ export default function Nav({ home }) {
 
   const query = data.blogdata.navigations[0];
 
-  const { state, dispatch } = useContext(Context);
+  const [tools, setTools] = useState(false);
+  const { state } = useContext(Context);
   const theme = useTheme();
   
   const setFontColor = () => {
-    return state.isDark ? theme.home.dark.font : theme.home.light.font
+    return state.isDark 
+    ? theme.home.dark.font 
+    : theme.home.light.font
   };
 
   return (
     <S.Navigation>
-      <S.Tools>
+      <S.Row>
         <S.Link to="/" title="Icon made by Freepik">
           <S.Logo
             iconColor={state.isDark}
@@ -41,30 +45,51 @@ export default function Nav({ home }) {
           />
         </S.Link>
 
-        <S.SetNoise color={setFontColor()}>
-          Noise
-          <S.NoiseBtn
-            onClick={() => dispatch({ type: 'TOGGLE_NOISE' })}
-            isNoise={state.isNoise}
-            isDark={state.isDark}
+        <S.Tools>
+          {tools &&
+            <>
+              {!home &&
+                <S.Switch color={setFontColor()}>
+                  Dark
+                  <Button
+                    toggleDark
+                    color={setFontColor}
+                  >
+                    {state.isDark ? 'ON' : 'OFF'}
+                  </Button>
+                </S.Switch>
+              }
+              <S.Switch color={setFontColor()}>
+                Noise
+                <Button
+                  toggleNoise
+                  color={setFontColor}
+                >
+                  {state.isNoise ? 'ON' : 'OFF'}
+                </Button>
+              </S.Switch>
+            </>
+          }
+
+          <S.Gear
+            onClick={() => setTools(!tools)}
+            tools={tools}
             color={setFontColor()}
-          >
-            {state.isNoise ? 'ON' : 'OFF'}
-          </S.NoiseBtn>
-        </S.SetNoise>
-      </S.Tools>
+          />
+        </S.Tools>
+      </S.Row>
 
       {home && <Lamp />}
 
-      <S.LinkBox>
-        <li>
+      <S.LinkRow>
+        {/* <li>
           <S.Link
             to="/sobre"
             color={setFontColor()}
           >
             {query.link1}
           </S.Link>
-        </li>
+        </li> */}
         <li>
           <S.Link
             to="/projetos"
@@ -73,7 +98,7 @@ export default function Nav({ home }) {
             {query.link2}
           </S.Link>
         </li>
-      </S.LinkBox>
+      </S.LinkRow>
     </S.Navigation>
   );
 }
