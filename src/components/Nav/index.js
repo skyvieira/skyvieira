@@ -48,17 +48,15 @@ export default function Nav({ home }) {
         <S.Tools>
           {tools &&
             <>
-              {!home &&
-                <S.Switch color={setFontColor()}>
-                  Dark
-                  <Button
-                    toggleDark
-                    color={setFontColor}
-                  >
-                    {state.isDark ? 'ON' : 'OFF'}
-                  </Button>
-                </S.Switch>
-              }
+              <S.Switch home={home} color={setFontColor()}>
+                Dark
+                <Button
+                  toggleDark
+                  color={setFontColor}
+                >
+                  {state.isDark ? 'ON' : 'OFF'}
+                </Button>
+              </S.Switch>
               <S.Switch color={setFontColor()}>
                 Noise
                 <Button

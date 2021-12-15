@@ -30,7 +30,7 @@ export default function Layout({ children, home }) {
         <title>{SetTitle()}</title>
       </Helmet>
 
-      <Cursor />
+      {!('ontouchstart' in document.documentElement) && <Cursor /> }
       <GlobalStyles
         isDark={state.isDark}
         isNoise={state.isNoise}

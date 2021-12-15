@@ -18,6 +18,10 @@ export const Navigation = styled.nav`
     justify-content: space-between;
     width: 100%;
   }
+
+  @media (max-width: 1024px) {
+    padding: 1rem 1.5rem;
+  }
 `;
 
 export const Row = styled.div``;
@@ -70,6 +74,14 @@ export const Switch = styled.div`
   color: ${props => props.color};
   font-size: .85em;
   transition: .5s;
+
+  &:first-child {
+    display: ${props => props.home ? 'none' : 'flex'};
+
+    @media (max-width: 768px) {
+      display: flex;
+    }
+  }
   
   &:not(:first-child) {
     margin-left: 1rem;
@@ -78,7 +90,7 @@ export const Switch = styled.div`
 
 export const LinkRow = styled.ul`
   position: relative;
-  top: 85vh;
+  top: 84vh;
   font-size: 1.05em;
   font-family: Consolas;
   list-style: none;
@@ -92,18 +104,18 @@ export const Link = styled(GatsbyLink)`
   &:after {
     content: '';
     position: relative;
-    bottom: -1px;
+    bottom: -2px;
     display: block;
     margin: 0 auto;
     width: 3px;
-    height: 2px;
+    height: 3px;
+    border-radius: 10px;
     background: ${props => props.color};
     transition: .3s;
     opacity: .5;
   }
   
   &:hover :after {
-    width: 10px;
-    bottom: -3px;
+    width: 12px;
   }
 `;
