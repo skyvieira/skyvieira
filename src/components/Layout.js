@@ -3,6 +3,7 @@ import { useLocation } from "@reach/router";
 import { Helmet } from "react-helmet";
 import Context from "../store/context";
 
+import Cursor from "./Cursor";
 import GlobalStyles from "./GlobalStyles";
 import Nav from "./Nav";
 
@@ -28,6 +29,8 @@ export default function Layout({ children, home }) {
       <Helmet>
         <title>{SetTitle()}</title>
       </Helmet>
+
+      <Cursor />
       
       <GlobalStyles
         isDark={state.isDark}
