@@ -128,3 +128,28 @@ export const Link = styled(GatsbyLink)`
     width: 12px;
   }
 `;
+
+export const SocialBox = styled.figure`
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  min-width: 10%;
+
+  @media (max-width: 1024px) {
+    min-width: 20%;
+  }
+`;
+
+export const Icon = styled.img`
+  width: 1.8rem;
+  filter: invert(${props => props.isDark ? '1' : '.2'});
+  transition: .2s;
+
+  &:hover {
+    transform: scale(1.1);
+  }
+
+  @media (max-width: 1024px) {
+    width: 1.6rem;
+  }
+`;
