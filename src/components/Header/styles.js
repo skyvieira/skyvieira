@@ -31,15 +31,15 @@ export const Content = styled.div`
   height: 100%;
 
   @media (max-width: 1024px) {
-    font-size: .8rem;
+    font-size: .9rem;
   }
 
   @media (max-width: 768px) {
     width: 100%;
   }
 
-  @media (max-width: 330px) {
-    font-size: .6rem;
+  @media (max-width: 370px) {
+    font-size: .68rem;
   }
 `;
 

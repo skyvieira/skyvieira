@@ -24,19 +24,13 @@ export default function Layout({ children, home }) {
     return `${location} | ${title}`
   };
 
-  const renderCursor = () => {
-    if(!('ontouchstart' in document.documentElement)) {
-      return <Cursor />
-    }
-  };
-
   return (
     <>
       <Helmet>
         <title>{SetTitle()}</title>
       </Helmet>
 
-      {renderCursor()}
+      <Cursor />
       <GlobalStyles
         isDark={state.isDark}
         isNoise={state.isNoise}

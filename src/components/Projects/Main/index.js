@@ -62,16 +62,16 @@ export default function Header() {
   const ConditionalWrapper = ({ condition, wrapper, children }) => 
     condition ? children : wrapper(children);
 
-  const mobile = 'ontouchstart' in document.documentElement;
+  const mobile = window.innerWidth < 1024;
 
   return (
     <S.Container>
-      <S.Background background={setBackground()} />
       <S.Wrapper
-        mobile={mobile}
         isDark={state.isDark}
         color={setFontColor()}
       >
+      <S.Background background={setBackground()} />
+      
         <ConditionalWrapper
           condition={mobile}
           wrapper={children => 
@@ -86,11 +86,10 @@ export default function Header() {
           {content.map((project, i) => (
             <S.Project
               key={i}
-              mobile={mobile}
               isDark={state.isDark}
             >
-              <S.Demo mobile={mobile}>
-                <S.DemoGif mobile={mobile} src={project.demo} alt="" />
+              <S.Demo>
+                <S.DemoGif src={project.demo} alt="" />
                 <S.About isDark={state.isDark}>
                   <S.Title color={setFontColor()}>
                     {project.title}
@@ -98,7 +97,7 @@ export default function Header() {
                 </S.About>
               </S.Demo>
 
-              <S.LinkColumn mobile={mobile}>
+              <S.LinkColumn>
                 <a href={project.link} target="_blank" rel="noopener noreferrer">
                   <S.Icon
                     isDark={state.isDark}

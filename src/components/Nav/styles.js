@@ -86,6 +86,11 @@ export const Switch = styled.div`
   &:not(:first-child) {
     margin-left: 1rem;
   }
+
+  @media (max-width: 370px) {
+    display: block !important;
+    min-width: 3rem;
+  }
 `;
 
 export const LinkRow = styled.ul`
@@ -94,6 +99,10 @@ export const LinkRow = styled.ul`
   font-size: 1.05em;
   font-family: Consolas;
   list-style: none;
+
+  @media (max-width: 370px) {
+    font-size: .9em;
+  }
 `;
 
 export const Link = styled(GatsbyLink)`
