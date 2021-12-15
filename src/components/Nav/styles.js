@@ -86,6 +86,11 @@ export const Switch = styled.div`
   &:not(:first-child) {
     margin-left: 1rem;
   }
+
+  @media (max-width: 370px) {
+    display: block !important;
+    min-width: 3rem;
+  }
 `;
 
 export const LinkRow = styled.ul`
@@ -94,6 +99,10 @@ export const LinkRow = styled.ul`
   font-size: 1.05em;
   font-family: Consolas;
   list-style: none;
+
+  @media (max-width: 370px) {
+    font-size: .9em;
+  }
 `;
 
 export const Link = styled(GatsbyLink)`
@@ -117,5 +126,30 @@ export const Link = styled(GatsbyLink)`
   
   &:hover :after {
     width: 12px;
+  }
+`;
+
+export const SocialBox = styled.figure`
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  min-width: 10%;
+
+  @media (max-width: 1024px) {
+    min-width: 20%;
+  }
+`;
+
+export const Icon = styled.img`
+  width: 1.8rem;
+  filter: invert(${props => props.isDark ? '1' : '.2'});
+  transition: .2s;
+
+  &:hover {
+    transform: scale(1.1);
+  }
+
+  @media (max-width: 1024px) {
+    width: 1.6rem;
   }
 `;

@@ -12,6 +12,10 @@ const Cursor = styled.div`
   pointer-events: none;
   overflow: hidden;
   z-index: 10;
+
+  @media (max-width: 1024px) {
+    display: none;
+  }
 `;
 
 export default function CustomCursor() {
@@ -32,6 +36,6 @@ export default function CustomCursor() {
       }
     });
   }, []);
-
+  
   return <Cursor id="cursor" />
 }
