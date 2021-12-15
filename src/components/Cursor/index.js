@@ -22,10 +22,10 @@ export default function CustomCursor() {
       cursor.style.top = `${e.clientY}px`;
 
       const target = e.target;
-      
+
       if(target.localName === 'button' 
         || target.localName === 'a' 
-        || target.parentElement.localName === 'a'
+        || target.parentElement?.localName === 'a'
       ) {
         cursor.style.width = '3rem';
         cursor.style.height = '3rem';
