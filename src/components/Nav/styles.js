@@ -8,7 +8,7 @@ export const Navigation = styled.nav`
   flex-direction: column;
   align-items: center;
   justify-content: space-between;
-  padding: 1rem 2.5rem;
+  padding: 1rem 5rem;
   width: 100%;
   z-index: 1;
 

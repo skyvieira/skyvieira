@@ -3,8 +3,6 @@ import styled from "styled-components";
 
 const Cursor = styled.div`
   position: fixed;
-  width: 5rem;
-  height: 5rem;
   border: 1px solid #fff;
   border-radius: 50%;
   transition: width 0.3s, height 0.3s;
@@ -17,10 +15,24 @@ const Cursor = styled.div`
 
 export default function CustomCursor() {
   useEffect(() => {
+    const cursor = document.getElementById('cursor');
+
     document.addEventListener('mousemove', (e) => {
-      const cursor = document.getElementById('cursor');
       cursor.style.left = `${e.clientX}px`;
       cursor.style.top = `${e.clientY}px`;
+
+      const target = e.target;
+      
+      if(target.localName === 'button' 
+        || target.localName === 'a' 
+        || target.parentElement.localName === 'a'
+      ) {
+        cursor.style.width = '3rem';
+        cursor.style.height = '3rem';
+      } else {
+        cursor.style.width = '6rem';
+        cursor.style.height = '6rem';
+      }
     });
   }, []);
 

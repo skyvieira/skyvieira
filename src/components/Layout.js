@@ -31,7 +31,6 @@ export default function Layout({ children, home }) {
       </Helmet>
 
       <Cursor />
-      
       <GlobalStyles
         isDark={state.isDark}
         isNoise={state.isNoise}

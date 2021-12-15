@@ -14,7 +14,7 @@ export const Wrapper = styled.section`
   display: flex;
   justify-content: space-between;
   margin: 0 auto;
-  width: 92%;
+  width: 85%;
   height: 100vh;
   color: ${props => props.color};
 `;
