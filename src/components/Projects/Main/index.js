@@ -59,21 +59,38 @@ export default function Header() {
     : theme.home.light.font
   };
 
+  const ConditionalWrapper = ({ condition, wrapper, children }) => 
+    condition ? children : wrapper(children);
+
+  const mobile = 'ontouchstart' in document.documentElement;
+
   return (
     <S.Container>
       <S.Background background={setBackground()} />
-      <S.Wrapper color={setFontColor()}>
-        <HorizontalContainer
-          reverseScroll = { true }
-          config = {{ stiffness: 300, damping: 100 }}
+      <S.Wrapper
+        mobile={mobile}
+        isDark={state.isDark}
+        color={setFontColor()}
+      >
+        <ConditionalWrapper
+          condition={mobile}
+          wrapper={children => 
+            <HorizontalContainer
+              reverseScroll = { true }
+              config = {{ stiffness: 300, damping: 100 }}
+            >
+              {children}
+            </HorizontalContainer>
+          }
         >
           {content.map((project, i) => (
             <S.Project
               key={i}
+              mobile={mobile}
               isDark={state.isDark}
             >
-              <S.Demo>
-                <S.DemoGif src={project.demo} alt="" />
+              <S.Demo mobile={mobile}>
+                <S.DemoGif mobile={mobile} src={project.demo} alt="" />
                 <S.About isDark={state.isDark}>
                   <S.Title color={setFontColor()}>
                     {project.title}
@@ -81,7 +98,7 @@ export default function Header() {
                 </S.About>
               </S.Demo>
 
-              <S.LinkColumn>
+              <S.LinkColumn mobile={mobile}>
                 <a href={project.link} target="_blank" rel="noopener noreferrer">
                   <S.Icon
                     isDark={state.isDark}
@@ -99,7 +116,7 @@ export default function Header() {
               </S.LinkColumn>
             </S.Project>
           ))}
-        </HorizontalContainer>
+        </ConditionalWrapper>
       </S.Wrapper>
     </S.Container>
   );

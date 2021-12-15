@@ -11,6 +11,10 @@ export const Lamp = styled.div`
   width: 4px;
   height: 30vh;
   background: #222;
+
+  @media (max-width: 768px) {
+    display: none;
+  }
 `;
 
 export const Socket = styled.div`

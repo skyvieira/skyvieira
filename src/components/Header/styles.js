@@ -17,6 +17,10 @@ export const Wrapper = styled.section`
   width: 85%;
   height: 100vh;
   color: ${props => props.color};
+
+  @media (max-width: 768px) {
+    flex-direction: column;
+  }
 `;
 
 export const Content = styled.div`
@@ -25,6 +29,18 @@ export const Content = styled.div`
   justify-content: center;
   width: 50%;
   height: 100%;
+
+  @media (max-width: 1024px) {
+    font-size: .8rem;
+  }
+
+  @media (max-width: 768px) {
+    width: 100%;
+  }
+
+  @media (max-width: 330px) {
+    font-size: .6rem;
+  }
 `;
 
 export const Title = styled.h1`
@@ -42,19 +58,28 @@ export const Title = styled.h1`
     letter-spacing: 0;
     text-transform: lowercase;
     text-shadow: -6px -1px 0 ${props => props.isDark ? '#221' : '#666'};
+
+    @media (max-width: 1024px) {
+      font-size: 8em;
+    }
   }
 `;
 
 export const About = styled.div`
-  width: 60%;
+  padding-top: 1rem;
+  width: 68%;
+
+  @media (max-width: 1024px) {
+    width: 80%;
+  }
 `;
 
 export const Subtitle = styled.h2`
   font-size: 1.4em;
   font-weight: 700;
   text-shadow: 0 0 1px black;
-  opacity: .8;
   transition: .5s;
+  opacity: .8;
 `;
 
 export const Tags = styled.ul`
@@ -65,6 +90,10 @@ export const Tags = styled.ul`
   letter-spacing: 3px;
   text-transform: uppercase;
   transition: .5s;
+
+  @media (max-width: 1024px) {
+    margin: 1.2rem 0;
+  }
 `;
 
 export const Tag = styled.li`
@@ -77,7 +106,12 @@ export const Tag = styled.li`
     margin: 0 1rem;
     padding-bottom: 2px;
     color: #999;
-    font-size: 1.2em;
+    font-size: 1.1em;
+
+    @media (max-width: 1024px) {
+      margin: 0 8px;
+      font-size: 1em;
+    }
   }
 `;
 

@@ -29,4 +29,8 @@ export const Title = styled.h1`
   text-transform: uppercase;
   text-shadow: -3px -1px 0 ${props => props.isDark ? '#221' : '#555'};
   transition: .4s;
+
+  @media (max-width: 1024px) {
+    font-size: 3em;
+  }
 `;
