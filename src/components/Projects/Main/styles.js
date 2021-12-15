@@ -29,7 +29,7 @@ export const Demo = styled.figure`
   position: relative;
   display: flex;
   justify-content: space-between;
-  width: 80%;
+  width: 75%;
   height: 100%;
   border-radius: 20px;
   overflow: hidden;
@@ -68,7 +68,7 @@ export const About = styled.figcaption`
   border-radius: 30px 0 0;
   border-right: 12px solid ${props => props.isDark ? '#111' : '#ccc'};
   background: ${props => props.isDark ? '#222' : '#fff'};
-  box-shadow: 0 0 20px #111;
+  box-shadow: 0 0 20px ${props => props.isDark ? '#111' : '#ccc'};
   transition: .2s;
   z-index: 1;
 `;
@@ -84,10 +84,15 @@ export const LinkColumn = styled.div`
   justify-content: space-evenly;
   align-items: center;
   height: 100%;
-  width: 10%;
+  width: 15%;
 `;
 
 export const Icon = styled.img`
   width: 2.5rem;
   filter: invert(${props => props.isDark && '1'});
+  transition: .2s;
+
+  &:hover {
+    transform: scale(1.1);
+  }
 `;

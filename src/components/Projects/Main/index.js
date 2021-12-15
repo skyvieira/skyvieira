@@ -33,18 +33,14 @@ export default function Header() {
   const query = data.blogdata.projects[0];
 
   const demo = query.projectDemo.map(demo => demo.url);
-  const title = query.projectTitle;
-  const link = query.websiteLink;
-  const github = query.githubLink;
-
   const content = [];
-
+  
   for (let i = 0; i < demo.length; i++) {
     content.push({
       demo: demo[i],
-      title: title[i],
-      link: link[i],
-      github: github[i]
+      title: query.projectTitle[i],
+      link: query.websiteLink[i],
+      github: query.githubLink[i]
     })
   };
 
