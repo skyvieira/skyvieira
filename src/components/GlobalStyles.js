@@ -38,7 +38,7 @@ const GlobalStyle = createGlobalStyle`
     word-wrap: break-word;
     font-kerning: normal;
     background: ${props => props.isDark && '#111'};
-    overflow-y: overlay;
+    overflow: hidden overlay;
 
     &:before {
       content: "";
