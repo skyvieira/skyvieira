@@ -6,6 +6,8 @@ import * as S from "./styles";
 
 import HorizontalContainer from "react-scroll-horizontal";
 
+const isBrowser = typeof window !== "undefined";
+
 export default function Header() {
   const data = useStaticQuery(graphql`
     query {
@@ -62,7 +64,11 @@ export default function Header() {
   const ConditionalWrapper = ({ condition, wrapper, children }) => 
     condition ? children : wrapper(children);
 
-  const mobile = window.innerWidth < 1024;
+  let mobile;
+
+  if(isBrowser) {
+    mobile = window.innerWidth < 1024;
+  }
 
   return (
     <S.Container>
