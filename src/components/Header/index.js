@@ -48,7 +48,7 @@ export default function Header() {
       <S.Wrapper color={setFontColor()}>
         <S.Content>
           <S.Title isDark={state.isDark}>
-            {query.welcomeMsg} <span>Livia.</span>
+            {query.welcomeMsg} <span>Sky.</span>
           </S.Title>
           
           <S.About>
