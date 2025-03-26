@@ -104,10 +104,10 @@ export default function Nav({ home }) {
         </li>
 
         <S.SocialBox>
-          <a href="https://github.com/liviavieira" target="_blank" rel="noopener noreferrer">
+          <a href="https://github.com/skyvieira" target="_blank" rel="noopener noreferrer">
             <S.Icon isDark={state.isDark} src={query.githubIcon.url} alt="GitHub" />
           </a>
-          <a href="https://www.linkedin.com/in/lliviavieira/" target="_blank" rel="noopener noreferrer">
+          <a href="https://www.linkedin.com/in/skyvieira/" target="_blank" rel="noopener noreferrer">
             <S.Icon isDark={state.isDark} src={query.linkedinIcon.url} alt="LinkedIn" />
           </a>
         </S.SocialBox>
