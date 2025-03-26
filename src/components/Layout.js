@@ -13,7 +13,7 @@ export default function Layout({ children, home }) {
   const SetTitle = () => {
     const path = useLocation().pathname;
     let location = '';
-    const title = 'Livia. Front-End Developer';
+    const title = 'Sky. Front-End Developer';
 
     if(path === '/') {
       location = 'Home'
